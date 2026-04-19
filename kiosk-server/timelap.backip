@@ -1,0 +1,36 @@
+import os
+import time
+from datetime import datetime
+
+# Settings
+BASE = "/var/image"
+INTERVAL = 60  # seconds between shots
+WIDTH = 1280
+HEIGHT = 720
+
+def ensure_dir(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+def capture_image():
+    now = datetime.now()
+    day_path = f"{BASE}/{now.year}/{now.month:02d}/{now.day:02d}"
+    ensure_dir(day_path)
+
+    filename = f"{now.year}{now.month:02d}{now.day:02d}-{now.hour:02d}{now.minute:02d}{now.second:02d}.jpg"
+    full_path = f"{day_path}/{filename}"
+
+    cmd = f"fswebcam -r {WIDTH}x{HEIGHT} --no-banner {full_path}"
+    os.system(cmd)
+
+    print(f"Captured {full_path}")
+
+def main():
+    while True:
+        capture_image()
+        time.sleep(INTERVAL)
+
+if __name__ == "__main__":
+    main()
+
+

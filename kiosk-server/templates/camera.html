@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera</title>
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        #stream {
+            flex: 1;
+            width: 100%;
+            object-fit: contain;
+            background: black;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        button {
+            font-size: 2rem;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+	<img id="stream">
+
+<script>
+    document.getElementById("stream").src =
+        "http://" + window.location.hostname + ":8080/?action=stream";
+</script>
+
+
+
+
+
+    <div class="controls">
+        <button onclick="window.location.href='/'">Back</button>
+        <button onclick="fetch('/camera/start')">Start Stream</button>
+        <button onclick="fetch('/camera/stop')">Stop Stream</button>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pi Kiosk</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 40px; }
+    button { font-size: 24px; padding: 20px; margin: 10px; width: 300px; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Pi Kiosk</h1>
+
+  <button onclick="setMode('video')">Video</button>
+  <button onclick="setMode('stream')">Stream</button>
+  <button onclick="window.location.href='/camera'">Camera</button>
+
+  <button onclick="setMode('ha')">Home Assistant</button>
+  <button onclick="setMode('klipper')">KlipperScreen</button>
+
+  <script>
+    function setMode(mode) {
+      fetch('/api/mode/' + mode, { method: 'POST' });
+    }
+  </script>
+</body>
+</html>

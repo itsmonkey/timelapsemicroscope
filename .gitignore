@@ -1,0 +1,62 @@
+##created by AI
+
+########################################
+# Python / Virtualenv
+########################################
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+.env
+.venv
+venv/
+myenv/
+
+########################################
+# Flask / Kiosk Server
+########################################
+instance/
+*.db
+*.sqlite3
+*.log
+
+# If you build frontend assets
+dist/
+build/
+
+########################################
+# Timelapse Output (ignored globally)
+########################################
+*.jpg
+*.png
+*.mp4
+
+########################################
+# Keep sample media (override ignore)
+########################################
+!samples/
+!samples/**
+
+########################################
+# OS / Editor Junk
+########################################
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+########################################
+# Node (if you ever add frontend tooling)
+########################################
+node_modules/
+npm-debug.log
+yarn-error.log
+
+########################################
+# Systemd / runtime files
+########################################
+*.service
+*.pid
+*.sock
